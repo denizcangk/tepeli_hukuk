@@ -1,0 +1,33 @@
+/* static/css/style.css */
+
+:root {
+    --primary-color: #800000; /* Koyu Bordo */
+    --secondary-color: #006400; /* Koyu Yeşil */
+    --light-bg: #f5f5f5;
+    --dark-text: #333;
+    --font-serif: "Georgia", serif; /* Kurumsal fontlara uygun */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--dark-text);
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+/* Genel Başlık Stili */
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    color: var(--primary-color);
+}
+
+/* Basit Buton Stili (örnek) */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h2 class="display-6 border-bottom pb-2">{% translate "Çalışma Alanlarımızdan Bazıları" %}</h2>
+            <div class="row justify-content-center">
+                {% for alan in uzmanliklar|slice:":6" %} <div class="col-md-4 col-sm-6 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <i class="fas fa-gavel fa-2x mb-3" style="color: var(--primary-color);"></i>
+                                <h5 class="card-title">{{ alan.baslik }}</h5>
+                                <p class="card-text">{{ alan.aciklama|truncatechars:100 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>Henüz uzmanlık alanı girişi yapılmamıştır.</p>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="col-12 text-center mt-5">
+            <h2 class="display-6 border-bottom pb-2">{% translate "Ekibimiz" %}</h2>
+            <p class="lead text-muted">{% translate "Hukuk büromuzun kurucuları ve avukatları." %}</p>
+            <div class="row justify-content-center">
+                {% for avukat in avukatlar %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="row g-0">
+                                {% if avukat.fotograf %}
+                                    <div class="col-md-4">
+                                        <img src="{{ avukat.fotograf.url }}" class="img-fluid rounded-start" alt="{{ avukat.ad_soyad }}" style="object-fit: cover; height: 100%;">
+                                    </div>
+                                {% endif %}
+                                <div class="col-md-8">
+                                    <div class="card-body text-start">
+                                        <h5 class="card-title" style="color: var(--primary-color);">{{ avukat.ad_soyad }}</h5>
+                                        <p class="card-text text-muted">{{ avukat.unvan }}</p>
+                                        <p class="card-text">{{ avukat.biyografi|truncatewords:20 }}</p>
+                                        <a href="#" class="btn btn-sm btn-primary">Detaylı Biyografi</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}

@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Tepeli Hukuk\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-01 13:47+0300\n"
+"PO-Revision-Date: 2025-12-01 10:04+0300\n"
+"Last-Translator: Full Name <email@example.com>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\Tepeli_Hukuk\settings.py:115
+msgid "Türkçe"
+msgstr "Turkish"
+
+#: .\Tepeli_Hukuk\settings.py:116
+msgid "English"
+msgstr "English"
+
+# Ekstra Metinler (Örn: Logodaki isim)
+#: .\ana_sayfa\views.py:10
+msgid "Tepeli Hukuk Bürosu"
+msgstr "Tepeli Law Firm"
+
+#: .\ana_sayfa\views.py:11
+msgid "Hukuk Büromuz Hakkında"
+msgstr "About Our Law Firm"
+
+#: .\ana_sayfa\views.py:12 .\templates\includes\header.html:21
+msgid "Çalışma Alanlarımız"
+msgstr "Practice Areas"
+
+# --- EKİP & İLETİŞİM ALANLARI ---
+#: .\ana_sayfa\views.py:13 .\templates\pages\ekibimiz.html:5
+msgid "Hukuk Kadromuz"
+msgstr "Our Legal Team"
+
+#: .\ana_sayfa\views.py:14
+msgid "Bizimle İletişime Geçin"
+msgstr "Contact us"
+
+#: .\ana_sayfa\views.py:15
+msgid "Güncel Kararlar ve Haberler"
+msgstr "Latest Rulings and News"
+
+#: .\ana_sayfa\views.py:73
+msgid "Mesajınız başarıyla alınmıştır. En kısa sürede size dönüş yapılacaktır."
+msgstr ""
+"Your message has been received successfully. We will get back to you as soon "
+"as possible."
+
+# --- MENÜ ÇEVİRİLERİ ---
+#: .\templates\includes\header.html:18
+msgid "Hakkımızda"
+msgstr "About Us"
+
+#: .\templates\includes\header.html:24 .\templates\pages\ana_sayfa.html:25
+msgid "Ekibimiz"
+msgstr "Our Team"
+
+#: .\templates\includes\header.html:27
+msgid "Güncel Kararlar"
+msgstr "Latest Rulings"
+
+#: .\templates\includes\header.html:30
+msgid "İletişim"
+msgstr "Contact"
+
+# --- ANA SAYFA ÇEVİRİLERİ ---
+#: .\templates\pages\ana_sayfa.html:7
+msgid "Çalışma Alanlarımızdan Bazıları"
+msgstr "Some of Our Practice Areas"
+
+#: .\templates\pages\ana_sayfa.html:26
+msgid "Hukuk büromuzun kurucuları ve avukatları."
+msgstr "The founders and lawyers of our law firm."
+
+#: .\templates\pages\ekibimiz.html:21
+msgid "Uzmanlık Alanları"
+msgstr "Areas of Expertise"
+
+#: .\templates\pages\haberler.html:6
+msgid "Yargıtay Kararları ve Güncel Hukuk Haberleri"
+msgstr "Supreme Court Rulings and Latest Legal News"
+
+#: .\templates\pages\haberler.html:15
+msgid "Yayın Tarihi"
+msgstr "Publication Date"
+
+#: .\templates\pages\haberler.html:19
+msgid "Kararın Tamamını Oku"
+msgstr "Read Full Ruling"
+
+#: .\templates\pages\haberler.html:25
+msgid "Henüz yayınlanmış bir karar veya haber bulunmamaktadır."
+msgstr "No rulings or news have been published yet."
+
+#: .\templates\pages\iletisim.html:4
+msgid "Bize Ulaşın"
+msgstr "Contact Us"
+
+#: .\templates\pages\iletisim.html:15
+msgid "Ad Soyad"
+msgstr "Full Name"
+
+#: .\templates\pages\iletisim.html:19
+msgid "E-posta Adresi"
+msgstr "Email Address"
+
+#: .\templates\pages\iletisim.html:23
+msgid "Konu"
+msgstr "Subject"
+
+#: .\templates\pages\iletisim.html:27
+msgid "Mesajınız"
+msgstr "Your Message"
+
+#: .\templates\pages\iletisim.html:30
+msgid "Gönder"
+msgstr "Send"

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <article class="row justify-content-center">
+        <div class="col-md-10">
+            <h1 class="mb-3" style="color: var(--primary-color);">{{ haber.baslik }}</h1>
+            <p class="text-muted small mb-4">Yayın Tarihi: {{ haber.yayin_tarihi|date:"d F Y H:i" }}</p>
+
+            <div class="lead">
+                {{ haber.icerik|safe }} </div>
+
+            <hr class="my-5">
+            <p><a href="{% url 'haberler' %}" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Tüm Kararlara Geri Dön</a></p>
+        </div>
+    </article>
+{% endblock content %}

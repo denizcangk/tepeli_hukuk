@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="text-center mb-5" style="color: var(--primary-color);">Tüm Çalışma Alanlarımız ve Hizmetlerimiz</h2>
+    <div class="row">
+        {% for alan in uzmanliklar %}
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm h-100 p-3 border-secondary">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3" style="color: var(--primary-color);">
+                            <i class="fas fa-balance-scale-right me-2"></i> {{ alan.baslik }}
+                        </h4>
+                        <p class="card-text">{{ alan.aciklama }}</p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12 text-center">
+                <p class="lead">Hukuk bürosu için tanımlanmış çalışma alanı bulunmamaktadır.</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
