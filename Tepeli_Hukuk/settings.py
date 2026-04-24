@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     # Dil middleware'i (i18n) zorunludur
     'django.middleware.locale.LocaleMiddleware',
@@ -126,7 +127,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static',]
 
 # Canlıda collectstatic komutuyla dosyaların toplanacağı dizin (Nginx'e sunulacak klasör)
-STATIC_ROOT = BASE_DIR / 'staticfiles_collected'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Medya Ayarları (Kullanıcı tarafından yüklenen dosyalar/Avukat Fotoğrafları)
 MEDIA_URL = '/media/'
