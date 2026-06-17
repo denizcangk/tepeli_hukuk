@@ -24,15 +24,15 @@ SAYFA_VERILERI = {
 SEO_VERILERI = {
     "tr": {
         "ana_sayfa": {
-            "title": "Tepeli Hukuk Bürosu | Ataşehir İstanbul Avukatlık ve Hukuki Danışmanlık",
-            "description": "Tepeli Hukuk Bürosu Ataşehir İstanbul'da iş, ticaret, şirketler, kamulaştırma, miras, aile, icra-iflas, deniz ve sigorta hukuku alanlarında hizmet verir.",
+            "title": "Tepeli Hukuk Bürosu | İstanbul ve İzmir Avukatlık ve Hukuki Danışmanlık",
+            "description": "Tepeli Hukuk Bürosu İstanbul ve İzmir'de iş, ticaret, şirketler, kamulaştırma, miras, aile, icra-iflas, deniz ve sigorta hukuku alanlarında hizmet verir.",
         },
         "hakkimizda": {
-            "title": "Hakkımızda | Tepeli Hukuk Bürosu Ataşehir",
-            "description": "Ataşehir İstanbul'da faaliyet gösteren Tepeli Hukuk Bürosu'nun çalışma anlayışı, avukat kadrosu ve hukuki hizmet yaklaşımı hakkında bilgi alın.",
+            "title": "Hakkımızda | Tepeli Hukuk Bürosu İstanbul ve İzmir",
+            "description": "İstanbul ve İzmir'de faaliyet gösteren Tepeli Hukuk Bürosu'nun çalışma anlayışı, avukat kadrosu ve hukuki hizmet yaklaşımı hakkında bilgi alın.",
         },
         "calisma_alanlari": {
-            "title": "Çalışma Alanlarımız | Ataşehir Hukuk Bürosu",
+            "title": "Çalışma Alanlarımız | İstanbul ve İzmir Hukuk Bürosu",
             "description": "Tepeli Hukuk Bürosu'nun iş, ticaret, şirketler, kamulaştırma, miras, aile, uluslararası özel hukuk, icra-iflas, deniz ve sigorta hukuku hizmetlerini inceleyin.",
         },
         "ekibimiz": {
@@ -40,8 +40,8 @@ SEO_VERILERI = {
             "description": "Tepeli Hukuk Bürosu avukatları Ali Tepeli ve Zeynep Ekin Tepeli Öztorun'un baro bilgileri ve çalışma alanları hakkında bilgi alın.",
         },
         "iletisim": {
-            "title": "İletişim | Tepeli Hukuk Bürosu Ataşehir İstanbul",
-            "description": "Tepeli Hukuk Bürosu Ataşehir İstanbul adres, telefon ve e-posta bilgilerine ulaşın; randevu ve danışmanlık taleplerinizi iletin.",
+            "title": "İletişim | Tepeli Hukuk Bürosu İstanbul ve İzmir",
+            "description": "Tepeli Hukuk Bürosu İstanbul ve İzmir ofis adresleri, telefon ve e-posta bilgilerine ulaşın; randevu ve danışmanlık taleplerinizi iletin.",
         },
         "haberler": {
             "title": "Güncel Kararlar ve Hukuk Haberleri | Tepeli Hukuk Bürosu",
@@ -192,8 +192,8 @@ def calisma_alani_detay_view(request, slug):
         'ofisler': OFISLER,
         'sayfa': {'title': hizmet['baslik'], 'banner': SAYFA_VERILERI['calisma_alanlari']['banner']},
         'seo': seo_context(request, 'calisma_alanlari', {
-            'title': f"{hizmet['baslik']} | Tepeli Hukuk Bürosu Ataşehir",
-            'description': f"{hizmet['baslik']} alanında Ataşehir İstanbul merkezli Tepeli Hukuk Bürosu tarafından sunulan danışmanlık ve dava takibi hizmetleri hakkında bilgi alın.",
+            'title': f"{hizmet['baslik']} | Tepeli Hukuk Bürosu İstanbul ve İzmir",
+            'description': f"{hizmet['baslik']} alanında İstanbul ve İzmir ofisleriyle hizmet veren Tepeli Hukuk Bürosu tarafından sunulan danışmanlık ve dava takibi hizmetleri hakkında bilgi alın.",
         }),
     }
     return render(request, 'pages/calisma_alani_detay.html', context)
