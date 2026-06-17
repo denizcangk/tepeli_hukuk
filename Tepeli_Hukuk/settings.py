@@ -22,6 +22,9 @@ ALLOWED_HOSTS = ["*"]
 
 #ALLOWED_HOSTS = ['tepelihukuk.com', 'www.tepelihukuk.com', 'sunucunuzun_ip_adresi','localhost','10.0.2.15',]
 
+# Render/Cloudflare gibi proxy arkasinda HTTPS bilgisini dogru okumak icin.
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # --- UYGULAMA TANIMLARI ---
 
@@ -36,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [

@@ -1,5 +1,32 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-    <h2 class="text-center">Hakkımızda Sayfası İçeriği Buraya Gelecek</h2>
+    {% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == 'en' %}
+        <section class="mx-auto" style="max-width: 920px;">
+            <h2 class="mb-4" style="color: var(--primary-color);">A Clear and Responsible Legal Service Approach</h2>
+            <p class="lead text-muted">
+                Tepeli Law Firm provides legal services for individuals and companies with a focus on careful analysis, transparent communication and practical solutions.
+            </p>
+            <p>
+                We evaluate each matter according to its legal, commercial and human context. Our work covers preventive consultancy, dispute management, contract processes and litigation follow-up.
+            </p>
+            <p>
+                Our priority is to explain legal risks clearly, build a realistic strategy and keep clients informed throughout the process.
+            </p>
+        </section>
+    {% else %}
+        <section class="mx-auto" style="max-width: 920px;">
+            <h2 class="mb-4" style="color: var(--primary-color);">Açık, Özenli ve Çözüm Odaklı Hukuki Hizmet</h2>
+            <p class="lead text-muted">
+                Tepeli Hukuk Bürosu, bireysel ve kurumsal müvekkillerine hukuki danışmanlık, dava takibi ve uyuşmazlık çözümü alanlarında hizmet sunar.
+            </p>
+            <p>
+                Her dosyayı yalnızca mevzuat açısından değil, müvekkilin hedefleri, riskleri ve ihtiyaçları bakımından da değerlendiririz. Önleyici hukuk danışmanlığı, sözleşme süreçleri, dava stratejisi ve icra takiplerinde anlaşılır ve uygulanabilir çözümler üretmeyi amaçlarız.
+            </p>
+            <p>
+                Çalışma anlayışımız; düzenli bilgilendirme, şeffaf süreç yönetimi ve somut hukuki değerlendirme üzerine kuruludur.
+            </p>
+        </section>
+    {% endif %}
 {% endblock content %}

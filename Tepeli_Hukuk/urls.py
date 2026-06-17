@@ -5,11 +5,16 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns # i18n'i kullanmak için
+from django.contrib.sitemaps.views import sitemap
+from ana_sayfa.sitemaps import sitemaps
+from ana_sayfa.views import robots_txt
 
 # 1. TEMEL URL'ler (Sadece i18n endpoint'ini içerir)
 urlpatterns = [
     # Dil değiştirme mekanizması için zorunlu URL
-    path('i18n/', include('django.conf.urls.i18n')), 
+    path('i18n/', include('django.conf.urls.i18n')),
+    path('robots.txt', robots_txt, name='robots_txt'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 # 2. DİL ÖNEKİ GEREKEN URL'ler (Tüm site sayfaları)

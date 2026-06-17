@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% block content %}
+    {% get_current_language as LANGUAGE_CODE %}
     <div class="row">
         <div class="col-12 text-center mb-5">
             <h2 class="display-6 border-bottom pb-2">{% translate "Çalışma Alanlarımızdan Bazıları" %}</h2>
@@ -15,8 +16,6 @@
                             </div>
                         </div>
                     </div>
-                {% empty %}
-                    <p>Henüz uzmanlık alanı girişi yapılmamıştır.</p>
                 {% endfor %}
             </div>
         </div>
@@ -39,11 +38,21 @@
                                         <h5 class="card-title" style="color: var(--primary-color);">{{ avukat.ad_soyad }}</h5>
                                         <p class="card-text text-muted">{{ avukat.unvan }}</p>
                                         <p class="card-text">{{ avukat.biyografi|truncatewords:20 }}</p>
-                                        <a href="#" class="btn btn-sm btn-primary">Detaylı Biyografi</a>
+                                        <a href="{% url 'ekibimiz' %}" class="btn btn-sm btn-primary">{% if LANGUAGE_CODE == 'en' %}Detailed Biography{% else %}Detaylı Biyografi{% endif %}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                {% empty %}
+                    <div class="col-lg-8">
+                        <p class="lead text-muted">
+                            {% if LANGUAGE_CODE == 'en' %}
+                                Our lawyers and detailed biographies will be shared here soon.
+                            {% else %}
+                                Büromuzun avukat kadrosu ve detaylı biyografiler kısa süre içinde bu alanda paylaşılacaktır.
+                            {% endif %}
+                        </p>
                     </div>
                 {% endfor %}
             </div>

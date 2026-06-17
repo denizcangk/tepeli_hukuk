@@ -1,10 +1,20 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <footer class="mt-5 py-4 border-top" style="background-color: var(--light-bg);">
     <div class="container text-center">
         <p class="mb-0">
             <i class="fas fa-envelope me-2" style="color: var(--primary-color);"></i>
-            İletişim: [Kurumsal E-posta Adresi Buraya Gelecek]
+            <a href="{% url 'iletisim' %}" class="text-decoration-none" style="color: var(--primary-color);">
+                {% if LANGUAGE_CODE == 'en' %}Contact us through the form{% else %}İletişim formu üzerinden bize ulaşın{% endif %}
+            </a>
         </p>
-        <p class="text-muted mb-0">© 2025 Tepeli Hukuk Bürosu. Tüm Hakları Saklıdır.</p>
+        <p class="text-muted mb-0">
+            {% if LANGUAGE_CODE == 'en' %}
+                © 2025 Tepeli Law Firm. All Rights Reserved.
+            {% else %}
+                © 2025 Tepeli Hukuk Bürosu. Tüm Hakları Saklıdır.
+            {% endif %}
+        </p>
     </div>
 </footer>

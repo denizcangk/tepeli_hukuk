@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% block content %}
+    {% get_current_language as LANGUAGE_CODE %}
     <h2 class="text-center mb-5" style="color: var(--primary-color);">{% translate "Hukuk Kadromuz" %}</h2>
     <div class="row justify-content-center">
         {% for avukat in avukatlar %}
@@ -27,6 +28,16 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        {% empty %}
+            <div class="col-lg-8 text-center">
+                <p class="lead text-muted">
+                    {% if LANGUAGE_CODE == 'en' %}
+                        Our lawyers and detailed biographies will be shared on this page soon.
+                    {% else %}
+                        Avukat kadromuz ve detaylı biyografiler kısa süre içinde bu sayfada paylaşılacaktır.
+                    {% endif %}
+                </p>
             </div>
         {% endfor %}
     </div>
