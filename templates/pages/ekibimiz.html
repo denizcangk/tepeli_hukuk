@@ -17,13 +17,24 @@
                             </div>
                         {% endif %}
                         <div class="col-md-9 border-start ps-4">
+                            {% if not avukat.fotograf %}
+                                <h4 style="color: var(--primary-color);">{{ avukat.ad_soyad }}</h4>
+                                <p class="text-muted">{{ avukat.unvan }}</p>
+                            {% endif %}
+                            {% if avukat.baro and avukat.sicil %}
+                                <p><strong>{{ avukat.baro }}</strong> Sicil No: {{ avukat.sicil }}</p>
+                            {% endif %}
                             <p class="lead">{{ avukat.biyografi }}</p>
 
                             <h5 class="mt-4" style="color: var(--secondary-color);">{% translate "Uzmanlık Alanları" %}:</h5>
                             <p>
-                            {% for alan in avukat.uzmanlik_alanlari.all %}
-                                <span class="badge rounded-pill text-bg-secondary me-2">{{ alan.baslik }}</span>
-                            {% endfor %}
+                                {% for alan in avukat.uzmanlik_alanlari.all %}
+                                    <span class="badge rounded-pill text-bg-secondary me-2">{{ alan.baslik }}</span>
+                                {% empty %}
+                                    {% for alan in avukat.uzmanliklar %}
+                                        <span class="badge rounded-pill text-bg-secondary me-2">{{ alan }}</span>
+                                    {% endfor %}
+                                {% endfor %}
                             </p>
                         </div>
                     </div>

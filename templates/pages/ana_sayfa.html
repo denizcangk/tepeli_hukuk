@@ -5,6 +5,17 @@
     {% get_current_language as LANGUAGE_CODE %}
     <div class="row">
         <div class="col-12 text-center mb-5">
+            {% if LANGUAGE_CODE == 'en' %}
+                <p class="lead text-muted mx-auto" style="max-width: 860px;">
+                    Tepeli Law Firm provides legal services from its office in Ataşehir, Istanbul, with a focus on labor, commercial, corporate, family, inheritance, enforcement, maritime and insurance law.
+                </p>
+            {% else %}
+                <p class="lead text-muted mx-auto" style="max-width: 860px;">
+                    Tepeli Hukuk Bürosu, İstanbul Ataşehir'de iş hukuku, ticaret hukuku, şirketler hukuku, aile hukuku, miras hukuku, icra-iflas hukuku, deniz hukuku ve sigorta hukuku alanlarında hizmet sunar.
+                </p>
+            {% endif %}
+        </div>
+        <div class="col-12 text-center mb-5">
             <h2 class="display-6 border-bottom pb-2">{% translate "Çalışma Alanlarımızdan Bazıları" %}</h2>
             <div class="row justify-content-center">
                 {% for alan in uzmanliklar|slice:":6" %} <div class="col-md-4 col-sm-6 mb-3">
@@ -38,6 +49,9 @@
                                         <h5 class="card-title" style="color: var(--primary-color);">{{ avukat.ad_soyad }}</h5>
                                         <p class="card-text text-muted">{{ avukat.unvan }}</p>
                                         <p class="card-text">{{ avukat.biyografi|truncatewords:20 }}</p>
+                                        {% if avukat.baro and avukat.sicil %}
+                                            <p class="small text-muted mb-2">{{ avukat.baro }} Sicil No: {{ avukat.sicil }}</p>
+                                        {% endif %}
                                         <a href="{% url 'ekibimiz' %}" class="btn btn-sm btn-primary">{% if LANGUAGE_CODE == 'en' %}Detailed Biography{% else %}Detaylı Biyografi{% endif %}</a>
                                     </div>
                                 </div>

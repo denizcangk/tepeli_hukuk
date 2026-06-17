@@ -4,6 +4,7 @@ from django.utils import translation
 
 from .karar_verileri import guncel_karar_kayitlari
 from .models import Haber
+from .site_verileri import HIZMET_ALANLARI
 
 
 STATIC_PAGES = (
@@ -53,7 +54,22 @@ class HaberSitemap(Sitemap):
         return haber.yayin_tarihi
 
 
+class CalismaAlaniSitemap(Sitemap):
+    changefreq = "monthly"
+    priority = 0.8
+    protocol = "https"
+
+    def items(self):
+        return [(alan, lang_code) for lang_code, alanlar in HIZMET_ALANLARI.items() for alan in alanlar]
+
+    def location(self, item):
+        alan, lang_code = item
+        with translation.override(lang_code):
+            return reverse("calisma_alani_detay", args=[alan["slug"]])
+
+
 sitemaps = {
     "static": StaticViewSitemap,
+    "calisma_alanlari": CalismaAlaniSitemap,
     "haberler": HaberSitemap,
 }

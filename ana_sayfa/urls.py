@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.ana_sayfa_view, name='ana_sayfa'),
     path('hakkimizda/', views.hakkimizda_view, name='hakkimizda'),
     path('calisma-alanlari/', views.calisma_alanlari_view, name='calisma_alanlari'),
+    path('calisma-alanlari/<slug:slug>/', views.calisma_alani_detay_view, name='calisma_alani_detay'),
     path('ekibimiz/', views.ekibimiz_view, name='ekibimiz'),
     path('iletisim/', views.iletisim_view, name='iletisim'),
 

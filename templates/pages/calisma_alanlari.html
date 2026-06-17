@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
+    {% get_current_language as LANGUAGE_CODE %}
     <h2 class="text-center mb-5" style="color: var(--primary-color);">Tüm Çalışma Alanlarımız ve Hizmetlerimiz</h2>
+    <p class="lead text-center text-muted mx-auto mb-5" style="max-width: 900px;">
+        {% if LANGUAGE_CODE == 'en' %}
+            Tepeli Law Firm provides legal consultancy and litigation services for individual and corporate clients from its office in Ataşehir, Istanbul.
+        {% else %}
+            Tepeli Hukuk Bürosu, Ataşehir İstanbul merkezli olarak bireysel ve kurumsal müvekkillere aşağıdaki hukuk alanlarında danışmanlık ve dava takibi hizmeti sunar.
+        {% endif %}
+    </p>
     <div class="row">
         {% for alan in uzmanliklar %}
             <div class="col-md-6 mb-4">
@@ -11,6 +20,10 @@
                             <i class="fas fa-balance-scale-right me-2"></i> {{ alan.baslik }}
                         </h4>
                         <p class="card-text">{{ alan.aciklama }}</p>
+                        <p class="small text-muted mb-0">Ataşehir / İstanbul</p>
+                        {% if alan.slug %}
+                            <a href="{% url 'calisma_alani_detay' alan.slug %}" class="btn btn-sm btn-primary mt-3">Detaylı Bilgi</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
