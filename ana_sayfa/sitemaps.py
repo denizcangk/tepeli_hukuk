@@ -2,6 +2,7 @@ from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 from django.utils import translation
 
+from .karar_verileri import guncel_karar_kayitlari
 from .models import Haber
 
 
@@ -37,12 +38,15 @@ class HaberSitemap(Sitemap):
     protocol = "https"
 
     def items(self):
-        return [(haber, lang_code) for haber in Haber.objects.all() for lang_code in ("tr", "en")]
+        haberler = list(Haber.objects.all()) or guncel_karar_kayitlari()
+        return [(haber, lang_code) for haber in haberler for lang_code in ("tr", "en")]
 
     def location(self, item):
         haber, lang_code = item
         with translation.override(lang_code):
-            return haber.get_absolute_url()
+            if hasattr(haber, "get_absolute_url"):
+                return haber.get_absolute_url()
+            return reverse("haber_detay", args=[haber.slug])
 
     def lastmod(self, item):
         haber, _lang_code = item

@@ -1,11 +1,13 @@
 # ana_sayfa/views.py
 import json
 
-from django.shortcuts import render, get_object_or_404  # get_object_or_404 eklendi
+from django.http import Http404
+from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _  # i18n için _() fonksiyonu
+from .karar_verileri import guncel_karar_kayitlari
 from .models import Avukat, UzmanlikAlani, Iletisim, Haber  # Tüm modelleri içeri aktardık
 
 # Tüm view'lerde kullanılacak statik sayfa verileri
@@ -209,7 +211,7 @@ def iletisim_view(request):
 # --- HABERLER / BLOG GÖRÜNÜMLERİ ---
 
 def haberler_view(request):
-    haberler = Haber.objects.all()  # Tüm haberleri çek
+    haberler = list(Haber.objects.all()) or guncel_karar_kayitlari()
     context = {
         'haberler': haberler,
         'sayfa': SAYFA_VERILERI['haberler'],
@@ -219,8 +221,11 @@ def haberler_view(request):
 
 
 def haber_detay_view(request, slug):
-    # Modelden slug ile haberi çek, bulunamazsa 404 döndür
-    haber = get_object_or_404(Haber, slug=slug)
+    haber = Haber.objects.filter(slug=slug).first()
+    if haber is None:
+        haber = next((karar for karar in guncel_karar_kayitlari() if karar.slug == slug), None)
+    if haber is None:
+        raise Http404("Haber bulunamadı.")
 
     context = {
         'haber': haber,
