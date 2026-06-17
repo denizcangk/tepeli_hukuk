@@ -19,8 +19,13 @@
                     </p>
                 {% endif %}
                 <hr>
-                <p class="mb-2"><strong>Adres:</strong><br>{{ firma.adres }}</p>
-                <p class="mb-2"><strong>Telefon:</strong><br><a href="tel:{{ firma.telefon_href }}">{{ firma.telefon }}</a></p>
+                {% for ofis in ofisler %}
+                    <p class="mb-2">
+                        <strong>{{ ofis.ad }}:</strong><br>
+                        {{ ofis.adres }}<br>
+                        <a href="tel:{{ ofis.telefon_href }}">{{ ofis.telefon }}</a>
+                    </p>
+                {% endfor %}
                 <p class="mb-0"><strong>E-posta:</strong><br><a href="mailto:{{ firma.eposta }}">{{ firma.eposta }}</a></p>
             </div>
         </div>

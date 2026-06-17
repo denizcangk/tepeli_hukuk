@@ -11,6 +11,30 @@ FIRMA_BILGILERI = {
 }
 
 
+OFISLER = [
+    {
+        "ad": "İstanbul Ataşehir Ofisi",
+        "telefon": "0554 381 43 46",
+        "telefon_href": "+905543814346",
+        "adres": "Barbaros Mah. Fesleğen Sok. Ağaoğlu Highpark 3C, Ataşehir / İstanbul",
+        "streetAddress": "Barbaros Mah. Fesleğen Sok. Ağaoğlu Highpark 3C",
+        "addressLocality": "Ataşehir",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR",
+    },
+    {
+        "ad": "İzmir Ofisi",
+        "telefon": "0232 361 41 61",
+        "telefon_href": "+902323614161",
+        "adres": "1690 Sok. Doktorlar Sitesi İşhanı No: 504, İzmir",
+        "streetAddress": "1690 Sok. Doktorlar Sitesi İşhanı No: 504",
+        "addressLocality": "İzmir",
+        "addressRegion": "İzmir",
+        "addressCountry": "TR",
+    },
+]
+
+
 HIZMET_ALANLARI = {
     "tr": [
         {

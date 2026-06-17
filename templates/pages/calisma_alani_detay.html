@@ -25,8 +25,12 @@
 
         <div class="p-4 border rounded mt-5">
             <h4 style="color: var(--primary-color);">{% if LANGUAGE_CODE == 'en' %}Contact{% else %}İletişim{% endif %}</h4>
-            <p class="mb-2"><strong>Adres:</strong> {{ firma.adres }}</p>
-            <p class="mb-2"><strong>Telefon:</strong> <a href="tel:{{ firma.telefon_href }}">{{ firma.telefon }}</a></p>
+            {% for ofis in ofisler %}
+                <p class="mb-2">
+                    <strong>{{ ofis.ad }}:</strong> {{ ofis.adres }}<br>
+                    <a href="tel:{{ ofis.telefon_href }}">{{ ofis.telefon }}</a>
+                </p>
+            {% endfor %}
             <p class="mb-0"><strong>E-posta:</strong> <a href="mailto:{{ firma.eposta }}">{{ firma.eposta }}</a></p>
         </div>
     </article>

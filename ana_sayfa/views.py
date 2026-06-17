@@ -9,7 +9,7 @@ from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _  # i18n için _() fonksiyonu
 from .karar_verileri import guncel_karar_kayitlari
 from .models import Avukat, UzmanlikAlani, Iletisim, Haber  # Tüm modelleri içeri aktardık
-from .site_verileri import EKIP_UYELERI, FIRMA_BILGILERI, HIZMET_ALANLARI
+from .site_verileri import EKIP_UYELERI, FIRMA_BILGILERI, HIZMET_ALANLARI, OFISLER
 
 # Tüm view'lerde kullanılacak statik sayfa verileri
 SAYFA_VERILERI = {
@@ -111,14 +111,17 @@ def seo_context(request, sayfa_anahtari, extra=None):
             "url": "https://tepelihukuk.com/",
             "telephone": FIRMA_BILGILERI["telefon_href"],
             "email": FIRMA_BILGILERI["eposta"],
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Barbaros Mah. Fesleğen Sok. Ağaoğlu Highpark 3C",
-                "addressLocality": FIRMA_BILGILERI["ilce"],
-                "addressRegion": FIRMA_BILGILERI["il"],
-                "addressCountry": FIRMA_BILGILERI["ulke"],
-            },
-            "areaServed": ["Ataşehir", "İstanbul", "Türkiye"],
+            "address": [
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": ofis["streetAddress"],
+                    "addressLocality": ofis["addressLocality"],
+                    "addressRegion": ofis["addressRegion"],
+                    "addressCountry": ofis["addressCountry"],
+                }
+                for ofis in OFISLER
+            ],
+            "areaServed": ["Ataşehir", "İstanbul", "İzmir", "Türkiye"],
             "knowsAbout": [alan["baslik"] for alan in HIZMET_ALANLARI["tr"]],
             "founder": [
                 {"@type": "Person", "name": "Ali Tepeli", "affiliation": "İzmir Barosu", "identifier": "4763"},
@@ -145,6 +148,7 @@ def ana_sayfa_view(request):
         'uzmanliklar': uzmanliklar,
         'avukatlar': avukatlar,
         'firma': FIRMA_BILGILERI,
+        'ofisler': OFISLER,
         'sayfa': SAYFA_VERILERI['ana_sayfa'],
         'seo': seo_context(request, 'ana_sayfa'),
     }
@@ -154,6 +158,7 @@ def ana_sayfa_view(request):
 def hakkimizda_view(request):
     context = {
         'firma': FIRMA_BILGILERI,
+        'ofisler': OFISLER,
         'ekip_uyeleri': EKIP_UYELERI,
         'sayfa': SAYFA_VERILERI['hakkimizda'],
         'seo': seo_context(request, 'hakkimizda'),
@@ -166,6 +171,7 @@ def calisma_alanlari_view(request):
     context = {
         'uzmanliklar': uzmanliklar,
         'firma': FIRMA_BILGILERI,
+        'ofisler': OFISLER,
         'sayfa': SAYFA_VERILERI['calisma_alanlari'],
         'seo': seo_context(request, 'calisma_alanlari'),
     }
@@ -183,6 +189,7 @@ def calisma_alani_detay_view(request, slug):
     context = {
         'hizmet': hizmet,
         'firma': FIRMA_BILGILERI,
+        'ofisler': OFISLER,
         'sayfa': {'title': hizmet['baslik'], 'banner': SAYFA_VERILERI['calisma_alanlari']['banner']},
         'seo': seo_context(request, 'calisma_alanlari', {
             'title': f"{hizmet['baslik']} | Tepeli Hukuk Bürosu Ataşehir",
@@ -197,6 +204,7 @@ def ekibimiz_view(request):
     context = {
         'avukatlar': avukatlar,
         'firma': FIRMA_BILGILERI,
+        'ofisler': OFISLER,
         'sayfa': SAYFA_VERILERI['ekibimiz'],
         'seo': seo_context(request, 'ekibimiz'),
     }
@@ -223,6 +231,7 @@ def iletisim_view(request):
     context = {
         'mesaj': mesaj,
         'firma': FIRMA_BILGILERI,
+        'ofisler': OFISLER,
         'sayfa': SAYFA_VERILERI['iletisim'],
         'seo': seo_context(request, 'iletisim'),
     }
@@ -236,6 +245,7 @@ def haberler_view(request):
     context = {
         'haberler': haberler,
         'firma': FIRMA_BILGILERI,
+        'ofisler': OFISLER,
         'sayfa': SAYFA_VERILERI['haberler'],
         'seo': seo_context(request, 'haberler'),
     }
@@ -252,6 +262,7 @@ def haber_detay_view(request, slug):
     context = {
         'haber': haber,
         'firma': FIRMA_BILGILERI,
+        'ofisler': OFISLER,
         # Dinamik başlık, modelin çeviri alanını kullanmalı
         'sayfa': {'title': haber.baslik, 'banner': SAYFA_VERILERI['haberler']['banner']},
         'seo': seo_context(request, 'haberler', {

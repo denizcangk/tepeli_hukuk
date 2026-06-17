@@ -3,14 +3,21 @@
 {% get_current_language as LANGUAGE_CODE %}
 <footer class="mt-5 py-4 border-top" style="background-color: var(--light-bg);">
     <div class="container text-center">
+        {% for ofis in ofisler %}
+            <p class="mb-0">
+                <i class="fas fa-location-dot me-2" style="color: var(--primary-color);"></i>
+                <strong>{{ ofis.ad }}:</strong> {{ ofis.adres }}
+                <span class="mx-2">|</span>
+                <i class="fas fa-phone me-2" style="color: var(--primary-color);"></i>
+                <a href="tel:{{ ofis.telefon_href }}" class="text-decoration-none" style="color: var(--primary-color);">{{ ofis.telefon }}</a>
+            </p>
+        {% empty %}
+            <p class="mb-0">
+                <i class="fas fa-location-dot me-2" style="color: var(--primary-color);"></i>
+                Barbaros Mah. Fesleğen Sok. Ağaoğlu Highpark 3C, Ataşehir / İstanbul
+            </p>
+        {% endfor %}
         <p class="mb-0">
-            <i class="fas fa-location-dot me-2" style="color: var(--primary-color);"></i>
-            Barbaros Mah. Fesleğen Sok. Ağaoğlu Highpark 3C, Ataşehir / İstanbul
-        </p>
-        <p class="mb-0">
-            <i class="fas fa-phone me-2" style="color: var(--primary-color);"></i>
-            <a href="tel:+905543814346" class="text-decoration-none" style="color: var(--primary-color);">0554 381 43 46</a>
-            <span class="mx-2">|</span>
             <i class="fas fa-envelope me-2" style="color: var(--primary-color);"></i>
             <a href="mailto:ekintepeli@gmail.com" class="text-decoration-none" style="color: var(--primary-color);">ekintepeli@gmail.com</a>
         </p>
