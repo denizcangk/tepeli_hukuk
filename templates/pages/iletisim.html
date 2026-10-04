@@ -22,8 +22,10 @@
                 {% for ofis in ofisler %}
                     <p class="mb-2">
                         <strong>{{ ofis.ad }}:</strong><br>
-                        {{ ofis.adres }}<br>
+                        {{ ofis.adres }}
+                        {% if ofis.telefon and ofis.telefon_href %}<br>
                         <a href="tel:{{ ofis.telefon_href }}">{{ ofis.telefon }}</a>
+                        {% endif %}
                     </p>
                 {% endfor %}
                 <p class="mb-0"><strong>E-posta:</strong><br><a href="mailto:{{ firma.eposta }}">{{ firma.eposta }}</a></p>

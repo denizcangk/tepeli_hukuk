@@ -109,12 +109,11 @@ def seo_context(request, sayfa_anahtari, extra=None):
             "@type": "LegalService",
             "name": "Tepeli Hukuk Bürosu",
             "url": "https://tepelihukuk.com/",
-            "telephone": FIRMA_BILGILERI["telefon_href"],
             "email": FIRMA_BILGILERI["eposta"],
             "address": [
                 {
                     "@type": "PostalAddress",
-                    "streetAddress": ofis["streetAddress"],
+                    **({"streetAddress": ofis["streetAddress"]} if ofis.get("streetAddress") else {}),
                     "addressLocality": ofis["addressLocality"],
                     "addressRegion": ofis["addressRegion"],
                     "addressCountry": ofis["addressCountry"],

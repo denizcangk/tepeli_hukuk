@@ -1,10 +1,7 @@
 FIRMA_BILGILERI = {
     "ad": "Tepeli Hukuk Bürosu",
-    "telefon": "0554 381 43 46",
-    "telefon_href": "+905543814346",
     "eposta": "ekintepeli@gmail.com",
-    "adres": "Barbaros Mah. Fesleğen Sok. Ağaoğlu Highpark 3C, Ataşehir / İstanbul",
-    "mahalle": "Barbaros Mahallesi",
+    "adres": "Ataşehir / İstanbul",
     "ilce": "Ataşehir",
     "il": "İstanbul",
     "ulke": "TR",
@@ -14,10 +11,7 @@ FIRMA_BILGILERI = {
 OFISLER = [
     {
         "ad": "İstanbul Ataşehir Ofisi",
-        "telefon": "0554 381 43 46",
-        "telefon_href": "+905543814346",
-        "adres": "Barbaros Mah. Fesleğen Sok. Ağaoğlu Highpark 3C, Ataşehir / İstanbul",
-        "streetAddress": "Barbaros Mah. Fesleğen Sok. Ağaoğlu Highpark 3C",
+        "adres": "Ataşehir / İstanbul",
         "addressLocality": "Ataşehir",
         "addressRegion": "İstanbul",
         "addressCountry": "TR",
